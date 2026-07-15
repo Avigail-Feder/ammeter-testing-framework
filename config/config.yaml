@@ -1,0 +1,42 @@
+testing:
+  sampling:
+    measurements_count: 10
+    total_duration_seconds: 10
+    sampling_frequency_hz: 1
+
+ammeters:
+  greenlee:
+    port: 5001
+    command: "MEASURE_GREENLEE -get_measurement"
+  entes:
+    port: 5002
+    command: "MEASURE_ENTES -get_data"
+  circutor:
+    port: 5003
+    command: "MEASURE_CIRCUTOR -get_measurement -current"
+
+analysis:
+  statistical_metrics:
+    - mean
+    - median
+    - std_dev
+    - min
+    - max
+  visualization:
+    enabled: true
+    plot_types:
+      - line
+      - histogram
+
+result_management:
+  storage_format: json
+  results_dir: "results/runs"
+  keep_history: true
+
+error_simulation:
+  enabled: false
+  failure_probability: 0.2
+  failure_types:
+    - connection_refused
+    - timeout
+    - malformed_data
