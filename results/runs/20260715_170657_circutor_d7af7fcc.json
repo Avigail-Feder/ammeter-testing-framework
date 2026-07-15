@@ -1,0 +1,33 @@
+{
+  "run_id": "d7af7fcc-142d-45af-870f-1d293f4dc21a",
+  "ammeter_type": "circutor",
+  "started_at": "2026-07-15T17:06:48.303018",
+  "finished_at": "2026-07-15T17:06:57.340210",
+  "requested_measurements": 10,
+  "successful_measurements": 10,
+  "failed_measurements": 0,
+  "samples": [
+    0.04854038158233606,
+    0.03169500842600091,
+    0.03774535949328863,
+    0.041485161065279594,
+    0.020870368213422825,
+    0.03743585438307714,
+    0.03538008469775431,
+    0.009833187955774316,
+    0.03067741003685793,
+    0.043326064312239065
+  ],
+  "errors": [],
+  "statistics": {
+    "mean": 0.033698888016603076,
+    "median": 0.036407969540415724,
+    "std_dev": 0.011323678222221611,
+    "min": 0.009833187955774316,
+    "max": 0.04854038158233606
+  },
+  "plots": [
+    "results\\plots\\circutor_d7af7fcc_line.png",
+    "results\\plots\\circutor_d7af7fcc_histogram.png"
+  ]
+}

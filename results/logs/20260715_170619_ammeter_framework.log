@@ -1,0 +1,62 @@
+2026-07-15 17:06:19,200 - test_ammeter_framework - INFO - Starting test run 56eea856-a22b-4a5b-801f-5595b1bf4dd3 for ammeter 'greenlee'
+2026-07-15 17:06:19,205 - test_ammeter_framework - DEBUG - [greenlee] sample 1/10: 0.05294340965165765 A
+2026-07-15 17:06:20,209 - test_ammeter_framework - DEBUG - [greenlee] sample 2/10: 0.0658332524358094 A
+2026-07-15 17:06:21,211 - test_ammeter_framework - DEBUG - [greenlee] sample 3/10: 0.11607269270618378 A
+2026-07-15 17:06:22,215 - test_ammeter_framework - DEBUG - [greenlee] sample 4/10: 0.1124790131533442 A
+2026-07-15 17:06:23,218 - test_ammeter_framework - DEBUG - [greenlee] sample 5/10: 0.06986563135954188 A
+2026-07-15 17:06:24,222 - test_ammeter_framework - DEBUG - [greenlee] sample 6/10: 4.904446700513846 A
+2026-07-15 17:06:25,226 - test_ammeter_framework - DEBUG - [greenlee] sample 7/10: 0.31296844473109053 A
+2026-07-15 17:06:26,229 - test_ammeter_framework - DEBUG - [greenlee] sample 8/10: 0.04290858007829942 A
+2026-07-15 17:06:27,234 - test_ammeter_framework - DEBUG - [greenlee] sample 9/10: 0.09004757721751003 A
+2026-07-15 17:06:28,238 - test_ammeter_framework - DEBUG - [greenlee] sample 10/10: 0.3133765343028679 A
+2026-07-15 17:06:28,977 - test_ammeter_framework - INFO - Saved plot: results\plots\greenlee_56eea856_line.png
+2026-07-15 17:06:28,978 - test_ammeter_framework - INFO - Saved plot: results\plots\greenlee_56eea856_histogram.png
+2026-07-15 17:06:28,980 - test_ammeter_framework - INFO - Archived result to results/runs\20260715_170628_greenlee_56eea856.json
+2026-07-15 17:06:28,981 - test_ammeter_framework - INFO - Finished test run 56eea856-a22b-4a5b-801f-5595b1bf4dd3 for 'greenlee': 10/10 successful
+2026-07-15 17:06:28,982 - test_ammeter_framework - INFO - Starting test run 5b31dffb-ae8b-4ad8-9993-9443ed6c38f7 for ammeter 'greenlee'
+2026-07-15 17:06:28,984 - test_ammeter_framework - DEBUG - [greenlee] sample 1/10: 0.10613351410844762 A
+2026-07-15 17:06:29,988 - test_ammeter_framework - DEBUG - [greenlee] sample 2/10: 0.06590325477100903 A
+2026-07-15 17:06:30,992 - test_ammeter_framework - DEBUG - [greenlee] sample 3/10: 0.057704621833227554 A
+2026-07-15 17:06:31,995 - test_ammeter_framework - DEBUG - [greenlee] sample 4/10: 0.05249637079332416 A
+2026-07-15 17:06:33,000 - test_ammeter_framework - DEBUG - [greenlee] sample 5/10: 0.15498281949714637 A
+2026-07-15 17:06:34,006 - test_ammeter_framework - DEBUG - [greenlee] sample 6/10: 0.5424982219919802 A
+2026-07-15 17:06:35,009 - test_ammeter_framework - DEBUG - [greenlee] sample 7/10: 0.33865986655002434 A
+2026-07-15 17:06:36,016 - test_ammeter_framework - DEBUG - [greenlee] sample 8/10: 0.3075856600510779 A
+2026-07-15 17:06:37,024 - test_ammeter_framework - DEBUG - [greenlee] sample 9/10: 0.09713281172221042 A
+2026-07-15 17:06:38,029 - test_ammeter_framework - DEBUG - [greenlee] sample 10/10: 0.05757446512707547 A
+2026-07-15 17:06:38,479 - test_ammeter_framework - INFO - Saved plot: results\plots\greenlee_5b31dffb_line.png
+2026-07-15 17:06:38,479 - test_ammeter_framework - INFO - Saved plot: results\plots\greenlee_5b31dffb_histogram.png
+2026-07-15 17:06:38,480 - test_ammeter_framework - INFO - Archived result to results/runs\20260715_170638_greenlee_5b31dffb.json
+2026-07-15 17:06:38,481 - test_ammeter_framework - INFO - Finished test run 5b31dffb-ae8b-4ad8-9993-9443ed6c38f7 for 'greenlee': 10/10 successful
+2026-07-15 17:06:38,481 - test_ammeter_framework - INFO - Starting test run 291bdd62-6c34-4e7f-b7d6-11bf160c90dc for ammeter 'entes'
+2026-07-15 17:06:38,483 - test_ammeter_framework - DEBUG - [entes] sample 1/10: 73.76462733798668 A
+2026-07-15 17:06:39,485 - test_ammeter_framework - DEBUG - [entes] sample 2/10: 47.50138579458098 A
+2026-07-15 17:06:40,488 - test_ammeter_framework - DEBUG - [entes] sample 3/10: 44.69655445341176 A
+2026-07-15 17:06:41,504 - test_ammeter_framework - DEBUG - [entes] sample 4/10: 93.2509998833561 A
+2026-07-15 17:06:42,510 - test_ammeter_framework - DEBUG - [entes] sample 5/10: 96.5449588412875 A
+2026-07-15 17:06:43,514 - test_ammeter_framework - DEBUG - [entes] sample 6/10: 56.72211007978853 A
+2026-07-15 17:06:44,517 - test_ammeter_framework - DEBUG - [entes] sample 7/10: 16.999639633977534 A
+2026-07-15 17:06:45,520 - test_ammeter_framework - DEBUG - [entes] sample 8/10: 75.6707590864106 A
+2026-07-15 17:06:46,525 - test_ammeter_framework - DEBUG - [entes] sample 9/10: 9.96165564696724 A
+2026-07-15 17:06:47,538 - test_ammeter_framework - DEBUG - [entes] sample 10/10: 100.76466169029233 A
+2026-07-15 17:06:48,300 - test_ammeter_framework - INFO - Saved plot: results\plots\entes_291bdd62_line.png
+2026-07-15 17:06:48,300 - test_ammeter_framework - INFO - Saved plot: results\plots\entes_291bdd62_histogram.png
+2026-07-15 17:06:48,302 - test_ammeter_framework - INFO - Archived result to results/runs\20260715_170648_entes_291bdd62.json
+2026-07-15 17:06:48,302 - test_ammeter_framework - INFO - Finished test run 291bdd62-6c34-4e7f-b7d6-11bf160c90dc for 'entes': 10/10 successful
+2026-07-15 17:06:48,303 - test_ammeter_framework - INFO - Starting test run d7af7fcc-142d-45af-870f-1d293f4dc21a for ammeter 'circutor'
+2026-07-15 17:06:48,304 - test_ammeter_framework - DEBUG - [circutor] sample 1/10: 0.04854038158233606 A
+2026-07-15 17:06:49,307 - test_ammeter_framework - DEBUG - [circutor] sample 2/10: 0.03169500842600091 A
+2026-07-15 17:06:50,311 - test_ammeter_framework - DEBUG - [circutor] sample 3/10: 0.03774535949328863 A
+2026-07-15 17:06:51,315 - test_ammeter_framework - DEBUG - [circutor] sample 4/10: 0.041485161065279594 A
+2026-07-15 17:06:52,318 - test_ammeter_framework - DEBUG - [circutor] sample 5/10: 0.020870368213422825 A
+2026-07-15 17:06:53,321 - test_ammeter_framework - DEBUG - [circutor] sample 6/10: 0.03743585438307714 A
+2026-07-15 17:06:54,324 - test_ammeter_framework - DEBUG - [circutor] sample 7/10: 0.03538008469775431 A
+2026-07-15 17:06:55,332 - test_ammeter_framework - DEBUG - [circutor] sample 8/10: 0.009833187955774316 A
+2026-07-15 17:06:56,335 - test_ammeter_framework - DEBUG - [circutor] sample 9/10: 0.03067741003685793 A
+2026-07-15 17:06:57,338 - test_ammeter_framework - DEBUG - [circutor] sample 10/10: 0.043326064312239065 A
+2026-07-15 17:06:57,827 - test_ammeter_framework - INFO - Saved plot: results\plots\circutor_d7af7fcc_line.png
+2026-07-15 17:06:57,828 - test_ammeter_framework - INFO - Saved plot: results\plots\circutor_d7af7fcc_histogram.png
+2026-07-15 17:06:57,834 - test_ammeter_framework - INFO - Archived result to results/runs\20260715_170657_circutor_d7af7fcc.json
+2026-07-15 17:06:57,835 - test_ammeter_framework - INFO - Finished test run d7af7fcc-142d-45af-870f-1d293f4dc21a for 'circutor': 10/10 successful
+2026-07-15 17:06:58,039 - test_ammeter_framework - INFO - Saved comparison plot: results\plots\comparison_7826cdb3_bar.png
+2026-07-15 17:06:58,042 - test_ammeter_framework - INFO - Archived result to results/runs\20260715_170658_comparison_7826cdb3.json

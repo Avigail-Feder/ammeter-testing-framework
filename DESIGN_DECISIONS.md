@@ -63,6 +63,25 @@ from `typing`; would raise `NameError` on import. `run_test()` was also just `pa
 **Fix:** implemented the framework fully (see below) with proper imports
 (`Dict`, `List`, `Optional` from `typing`).
 
+### 4. `Ammeters/base_ammeter.py` — server crashed on rapid re-runs
+
+**Symptom:** running scripts that start the ammeter emulators back-to-back in quick
+succession (e.g. running the test framework multiple times in a row) would
+intermittently cause one ammeter's server thread to crash with
+`OSError: [Errno 98] Address already in use`, silently killing that server. Every
+client request to that ammeter for the rest of the run then failed with
+"Connection refused," since nothing was listening on its port anymore.
+
+**Root cause:** the listening socket in `start_server()` didn't set `SO_REUSEADDR`.
+After a server closes, the OS can hold that (address, port) pair in a `TIME_WAIT`
+state for a short period, during which a new `bind()` to the same port fails unless
+the socket explicitly opts in to reusing the address.
+
+**Fix:** added `s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)` before
+`bind()`, which allows immediate re-binding even while a prior socket on the same
+port is winding down. Verified with 5 back-to-back full test-framework runs after the
+fix, versus frequent failures before it.
+
 ## Design Decisions
 
 ### Unified measurement API

@@ -10,9 +10,6 @@ from typing import Dict, List, Optional
 
 from ..utils.config import load_config
 from ..utils.logger import TestLogger
-
-from ..utils.config import load_config
-from ..utils.logger import TestLogger
 from . import visualizer
 
 

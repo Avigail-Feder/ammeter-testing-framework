@@ -1,0 +1,33 @@
+{
+  "run_id": "5b31dffb-ae8b-4ad8-9993-9443ed6c38f7",
+  "ammeter_type": "greenlee",
+  "started_at": "2026-07-15T17:06:28.982406",
+  "finished_at": "2026-07-15T17:06:38.031524",
+  "requested_measurements": 10,
+  "successful_measurements": 10,
+  "failed_measurements": 0,
+  "samples": [
+    0.10613351410844762,
+    0.06590325477100903,
+    0.057704621833227554,
+    0.05249637079332416,
+    0.15498281949714637,
+    0.5424982219919802,
+    0.33865986655002434,
+    0.3075856600510779,
+    0.09713281172221042,
+    0.05757446512707547
+  ],
+  "errors": [],
+  "statistics": {
+    "mean": 0.1780671606445523,
+    "median": 0.10163316291532902,
+    "std_dev": 0.16498725808238518,
+    "min": 0.05249637079332416,
+    "max": 0.5424982219919802
+  },
+  "plots": [
+    "results\\plots\\greenlee_5b31dffb_line.png",
+    "results\\plots\\greenlee_5b31dffb_histogram.png"
+  ]
+}

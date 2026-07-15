@@ -1,0 +1,33 @@
+{
+  "run_id": "291bdd62-6c34-4e7f-b7d6-11bf160c90dc",
+  "ammeter_type": "entes",
+  "started_at": "2026-07-15T17:06:38.481631",
+  "finished_at": "2026-07-15T17:06:47.541481",
+  "requested_measurements": 10,
+  "successful_measurements": 10,
+  "failed_measurements": 0,
+  "samples": [
+    73.76462733798668,
+    47.50138579458098,
+    44.69655445341176,
+    93.2509998833561,
+    96.5449588412875,
+    56.72211007978853,
+    16.999639633977534,
+    75.6707590864106,
+    9.96165564696724,
+    100.76466169029233
+  ],
+  "errors": [],
+  "statistics": {
+    "mean": 61.58773524480593,
+    "median": 65.2433687088876,
+    "std_dev": 32.08802396686533,
+    "min": 9.96165564696724,
+    "max": 100.76466169029233
+  },
+  "plots": [
+    "results\\plots\\entes_291bdd62_line.png",
+    "results\\plots\\entes_291bdd62_histogram.png"
+  ]
+}

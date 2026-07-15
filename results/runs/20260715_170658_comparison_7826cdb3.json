@@ -1,0 +1,127 @@
+{
+  "run_id": "7826cdb3-939f-4a98-ac18-4e38d1c186a4",
+  "generated_at": "2026-07-15T17:06:57.835518",
+  "results": {
+    "greenlee": {
+      "run_id": "5b31dffb-ae8b-4ad8-9993-9443ed6c38f7",
+      "ammeter_type": "greenlee",
+      "started_at": "2026-07-15T17:06:28.982406",
+      "finished_at": "2026-07-15T17:06:38.031524",
+      "requested_measurements": 10,
+      "successful_measurements": 10,
+      "failed_measurements": 0,
+      "samples": [
+        0.10613351410844762,
+        0.06590325477100903,
+        0.057704621833227554,
+        0.05249637079332416,
+        0.15498281949714637,
+        0.5424982219919802,
+        0.33865986655002434,
+        0.3075856600510779,
+        0.09713281172221042,
+        0.05757446512707547
+      ],
+      "errors": [],
+      "statistics": {
+        "mean": 0.1780671606445523,
+        "median": 0.10163316291532902,
+        "std_dev": 0.16498725808238518,
+        "min": 0.05249637079332416,
+        "max": 0.5424982219919802
+      },
+      "plots": [
+        "results\\plots\\greenlee_5b31dffb_line.png",
+        "results\\plots\\greenlee_5b31dffb_histogram.png"
+      ]
+    },
+    "entes": {
+      "run_id": "291bdd62-6c34-4e7f-b7d6-11bf160c90dc",
+      "ammeter_type": "entes",
+      "started_at": "2026-07-15T17:06:38.481631",
+      "finished_at": "2026-07-15T17:06:47.541481",
+      "requested_measurements": 10,
+      "successful_measurements": 10,
+      "failed_measurements": 0,
+      "samples": [
+        73.76462733798668,
+        47.50138579458098,
+        44.69655445341176,
+        93.2509998833561,
+        96.5449588412875,
+        56.72211007978853,
+        16.999639633977534,
+        75.6707590864106,
+        9.96165564696724,
+        100.76466169029233
+      ],
+      "errors": [],
+      "statistics": {
+        "mean": 61.58773524480593,
+        "median": 65.2433687088876,
+        "std_dev": 32.08802396686533,
+        "min": 9.96165564696724,
+        "max": 100.76466169029233
+      },
+      "plots": [
+        "results\\plots\\entes_291bdd62_line.png",
+        "results\\plots\\entes_291bdd62_histogram.png"
+      ]
+    },
+    "circutor": {
+      "run_id": "d7af7fcc-142d-45af-870f-1d293f4dc21a",
+      "ammeter_type": "circutor",
+      "started_at": "2026-07-15T17:06:48.303018",
+      "finished_at": "2026-07-15T17:06:57.340210",
+      "requested_measurements": 10,
+      "successful_measurements": 10,
+      "failed_measurements": 0,
+      "samples": [
+        0.04854038158233606,
+        0.03169500842600091,
+        0.03774535949328863,
+        0.041485161065279594,
+        0.020870368213422825,
+        0.03743585438307714,
+        0.03538008469775431,
+        0.009833187955774316,
+        0.03067741003685793,
+        0.043326064312239065
+      ],
+      "errors": [],
+      "statistics": {
+        "mean": 0.033698888016603076,
+        "median": 0.036407969540415724,
+        "std_dev": 0.011323678222221611,
+        "min": 0.009833187955774316,
+        "max": 0.04854038158233606
+      },
+      "plots": [
+        "results\\plots\\circutor_d7af7fcc_line.png",
+        "results\\plots\\circutor_d7af7fcc_histogram.png"
+      ]
+    }
+  },
+  "comparison": {
+    "per_ammeter": {
+      "greenlee": {
+        "mean_current": 0.1780671606445523,
+        "std_dev": 0.16498725808238518,
+        "coefficient_of_variation": 0.9265451163773174
+      },
+      "entes": {
+        "mean_current": 61.58773524480593,
+        "std_dev": 32.08802396686533,
+        "coefficient_of_variation": 0.5210132153637117
+      },
+      "circutor": {
+        "mean_current": 0.033698888016603076,
+        "std_dev": 0.011323678222221611,
+        "coefficient_of_variation": 0.336025278241898
+      }
+    },
+    "most_consistent_ammeter": "circutor",
+    "note": "Ammeter types use different measurement principles and value ranges (Ohm's Law, Hall Effect, Rogowski Coil), so raw current readings are not directly comparable to each other. Coefficient of variation (std_dev / mean) is used as a proxy for measurement consistency rather than absolute accuracy, since this emulated setup has no ground-truth reference current to compare against."
+  },
+  "comparison_plot": "results\\plots\\comparison_7826cdb3_bar.png"
+}
