@@ -1,4 +1,5 @@
 import json
+import math
 import os
 import random
 import statistics
@@ -38,8 +39,24 @@ class AmmeterTestFramework:
         self._ammeters = ammeters_cfg
 
         sampling_cfg = (self.config.get("testing") or {}).get("sampling") or {}
-        self._measurements_count = sampling_cfg.get("measurements_count") or 10
-        self._sampling_frequency_hz = sampling_cfg.get("sampling_frequency_hz") or 1
+        self._measurements_count = int(sampling_cfg.get("measurements_count", 10))
+        self._sampling_frequency_hz = float(sampling_cfg.get("sampling_frequency_hz", 1))
+        self._total_duration_seconds = sampling_cfg.get("total_duration_seconds")
+        if self._measurements_count <= 0:
+            raise ValueError("testing.sampling.measurements_count must be greater than zero.")
+        if self._sampling_frequency_hz < 0:
+            raise ValueError("testing.sampling.sampling_frequency_hz cannot be negative.")
+        if self._total_duration_seconds is not None:
+            self._total_duration_seconds = float(self._total_duration_seconds)
+            if self._total_duration_seconds < 0:
+                raise ValueError("testing.sampling.total_duration_seconds cannot be negative.")
+            if self._sampling_frequency_hz > 0:
+                expected_duration = self._measurements_count / self._sampling_frequency_hz
+                if not math.isclose(self._total_duration_seconds, expected_duration, rel_tol=0.01):
+                    raise ValueError(
+                        "Sampling configuration is inconsistent: total_duration_seconds must equal "
+                        "measurements_count / sampling_frequency_hz."
+                    )
 
         result_cfg = self.config.get("result_management") or {}
         self._results_dir = result_cfg.get("results_dir", "results/runs")
@@ -138,7 +155,11 @@ class AmmeterTestFramework:
         ammeter_type = ammeter_type.lower()
         run_id = str(uuid.uuid4())
         started_at = datetime.now().isoformat()
-        interval = (1.0 / self._sampling_frequency_hz) if self._sampling_frequency_hz else 0
+        interval = (
+            self._total_duration_seconds / self._measurements_count
+            if self._total_duration_seconds is not None
+            else (1.0 / self._sampling_frequency_hz if self._sampling_frequency_hz else 0)
+        )
 
         samples: List[float] = []
         errors: List[str] = []
@@ -156,7 +177,9 @@ class AmmeterTestFramework:
                 errors.append(str(exc))
                 self.logger.error(f"[{ammeter_type}] sample {i + 1} failed: {exc}")
 
-            if interval and i < self._measurements_count - 1:
+            # Sleeping after every sample means the configured duration covers the
+            # complete test window, not merely the gap between the first and last read.
+            if interval:
                 time.sleep(interval)
 
         stats = self._compute_statistics(samples)
@@ -166,6 +189,7 @@ class AmmeterTestFramework:
             "ammeter_type": ammeter_type,
             "started_at": started_at,
             "finished_at": datetime.now().isoformat(),
+            "duration_seconds": self._total_duration_seconds,
             "requested_measurements": self._measurements_count,
             "successful_measurements": len(samples),
             "failed_measurements": len(errors),

@@ -129,7 +129,7 @@ All sampling, ammeter, analysis, and archiving behavior is driven by
 testing:
   sampling:
     measurements_count: 10      # samples per test run
-    total_duration_seconds: 10  # informational; ~ measurements_count / sampling_frequency_hz
+    total_duration_seconds: 10  # enforced: must equal measurements_count / sampling_frequency_hz
     sampling_frequency_hz: 1    # samples per second
 
 ammeters:
@@ -149,8 +149,9 @@ result_management:
   keep_history: true
 ```
 
-Change `measurements_count` / `sampling_frequency_hz` to run longer or shorter tests
-without touching any code. Add another ammeter under `ammeters:` (matching port +
+Change `measurements_count` / `sampling_frequency_hz` (and keep
+`total_duration_seconds = measurements_count / sampling_frequency_hz`) to run longer
+or shorter tests without touching any code. Add another ammeter under `ammeters:` (matching port +
 exact command string from its emulator class) and `run_all_tests()` will pick it up
 automatically.
 

@@ -4,10 +4,14 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+import socket
+import threading
+import time
 
 import pytest
 
 from src.testing.test_framework import AmmeterConnectionError, AmmeterTestFramework
+from src.testing import test_framework
 
 
 def test_compute_statistics_for_multiple_samples() -> None:
@@ -36,6 +40,32 @@ def test_unknown_ammeter_is_rejected(framework) -> None:
         framework._measure_once("not-a-meter")
 
 
+def test_invalid_command_returns_a_framework_error(framework) -> None:
+    framework._ammeters["greenlee"]["command"] = "INVALID"
+
+    with pytest.raises(AmmeterConnectionError, match="malformed data"):
+        framework._measure_once("greenlee", timeout=1)
+
+
+def test_timeout_is_reported_as_connection_error(framework) -> None:
+    listener = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    listener.bind(("localhost", 0))
+    listener.listen(1)
+    port = listener.getsockname()[1]
+
+    def accept_without_reply() -> None:
+        with listener:
+            connection, _ = listener.accept()
+            with connection:
+                time.sleep(0.1)
+
+    threading.Thread(target=accept_without_reply, daemon=True).start()
+    framework._ammeters["greenlee"]["port"] = port
+
+    with pytest.raises(AmmeterConnectionError, match="Failed to reach"):
+        framework._measure_once("greenlee", timeout=0.01)
+
+
 def test_run_test_records_successes_errors_and_archive(framework, monkeypatch) -> None:
     framework._measurements_count = 3
     framework._sampling_frequency_hz = 0  # Keep this unit test fast; timing is tested separately.
@@ -58,6 +88,20 @@ def test_run_test_records_successes_errors_and_archive(framework, monkeypatch) -
     archived = list(Path(framework._results_dir).glob("*.json"))
     assert len(archived) == 1
     assert json.loads(archived[0].read_text(encoding="utf-8"))["run_id"] == result["run_id"]
+
+
+def test_run_test_honours_configured_sampling_duration(framework, monkeypatch) -> None:
+    framework._measurements_count = 3
+    framework._sampling_frequency_hz = 2
+    framework._total_duration_seconds = 1.5
+    monkeypatch.setattr(framework, "_measure_once", lambda _ammeter_type: 1.0)
+    sleep_calls = []
+    monkeypatch.setattr(test_framework.time, "sleep", sleep_calls.append)
+
+    result = framework.run_test("greenlee")
+
+    assert sleep_calls == [0.5, 0.5, 0.5]
+    assert result["duration_seconds"] == 1.5
 
 
 def test_compare_results_chooses_lowest_coefficient_of_variation() -> None:

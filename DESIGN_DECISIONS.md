@@ -97,10 +97,12 @@ ASCII float" pattern.
 
 ### Sampling
 
-Sample count, sampling frequency, and (informational) total duration are all
-config-driven (`testing.sampling` in `config.yaml`) rather than hardcoded, so test
-runs can be scaled up or down without touching code. Between samples,
-`run_test()` sleeps `1 / sampling_frequency_hz` seconds.
+Sample count, sampling frequency, and total duration are all config-driven
+(`testing.sampling` in `config.yaml`) rather than hardcoded, so test runs can be
+scaled up or down without touching code. When all values are provided, the framework
+validates `total_duration_seconds = measurements_count / sampling_frequency_hz` to
+avoid ambiguous schedules. It sleeps after every sample, so the complete test window
+honors the configured duration.
 
 ### Statistics
 

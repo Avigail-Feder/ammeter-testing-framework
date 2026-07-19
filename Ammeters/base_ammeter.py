@@ -31,11 +31,22 @@ class AmmeterEmulatorBase(ABC):
                 conn, addr = s.accept()
                 with conn:
                     print(f"Connected by {addr}")
-                    data = conn.recv(1024)
-                    if data == self.get_current_command:
-                        # Call the specific measure_current() method defined in subclasses
+                    try:
+                        data = conn.recv(1024)
+                        if data != self.get_current_command:
+                            conn.sendall(b"ERROR: unknown command")
+                            continue
+
+                        # Call the specific measure_current() method defined in subclasses.
                         current = self.measure_current()
                         conn.sendall(str(current).encode('utf-8'))
+                    except Exception as exc:
+                        # A bad request or emulator fault must not terminate the server thread.
+                        print(f"Request failed on port {self.port}: {exc}")
+                        try:
+                            conn.sendall(f"ERROR: {exc}".encode("utf-8"))
+                        except OSError:
+                            pass
 
     @property
     @abstractmethod

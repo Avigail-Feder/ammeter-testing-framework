@@ -10,9 +10,14 @@ analysis.visualization.enabled is true in config.yaml.
 import os
 from typing import Dict, List, Optional
 
-import matplotlib
-matplotlib.use("Agg")  # headless backend: no display needed, just writes image files
-import matplotlib.pyplot as plt
+
+def _get_pyplot():
+    """Load matplotlib only when visualization is explicitly requested."""
+    import matplotlib
+
+    matplotlib.use("Agg")  # Headless backend: no display needed, just writes image files.
+    import matplotlib.pyplot as plt
+    return plt
 
 
 def plot_single_result(result: Dict, plot_types: List[str], output_dir: str) -> List[str]:
@@ -29,6 +34,8 @@ def plot_single_result(result: Dict, plot_types: List[str], output_dir: str) -> 
 
     if not samples:
         return written
+
+    plt = _get_pyplot()
 
     if "line" in plot_types:
         path = os.path.join(output_dir, f"{ammeter_type}_{run_id_short}_line.png")
@@ -71,6 +78,8 @@ def plot_comparison(combined_result: Dict, output_dir: str) -> Optional[str]:
     per_ammeter = combined_result.get("comparison", {}).get("per_ammeter", {})
     if not per_ammeter:
         return None
+
+    plt = _get_pyplot()
 
     os.makedirs(output_dir, exist_ok=True)
     run_id_short = combined_result.get("run_id", "comparison")[:8]
