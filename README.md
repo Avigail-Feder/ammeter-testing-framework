@@ -63,9 +63,19 @@ Install dependencies:
 ```sh
 pip install -r requirements.txt
 ```
-At minimum this project requires `pyyaml` (for reading `config.yaml`). The
-`analysis.visualization` config section is intended for a `matplotlib`-based
-plotting bonus feature; install it too if you use that.
+The project uses `pyyaml` for configuration, `matplotlib` for the enabled plotting
+feature, and `pytest` for the automated test suite.
+
+### Run automated tests
+
+```sh
+pytest
+```
+
+The suite includes unit tests for statistical calculations, error recording,
+archiving, and comparison logic, plus integration tests that start all three
+emulators on temporary ports and validate their wire protocol through the unified
+framework API.
 
 ## Usage
 

@@ -5,8 +5,10 @@
 - **pyyaml** — required to parse `config/config.yaml`. Was already listed in
   `requirements.txt` but not present in the environment; installed via
   `pip install pyyaml`.
+- **pytest** — development/test dependency used by the automated unit and
+  emulator-integration test suite in `tests/`.
 
-No other new dependencies were added. `AmmeterTestFramework` intentionally uses only
+No other runtime dependencies were added. `AmmeterTestFramework` intentionally uses only
 the Python standard library (`socket`, `json`, `statistics`, `uuid`, `time`,
 `datetime`, `logging`) to satisfy the exercise's "minimize external library
 dependencies" constraint.

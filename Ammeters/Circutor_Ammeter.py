@@ -1,5 +1,6 @@
 from Ammeters.base_ammeter import AmmeterEmulatorBase
 from src.utils.Utils import generate_random_float
+import time
 
 
 class CircutorAmmeter(AmmeterEmulatorBase):
